@@ -1,7 +1,25 @@
 import { Elysia } from "elysia";
+import { helmet } from "elysia-helmet";
+import { logger } from "@bogeychan/elysia-logger";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const app = new Elysia()
+	.use(helmet())
+	.use(
+		logger({
+			transport: {
+				target: "pino-pretty",
+				options: {
+					colorize: true,
+				},
+			},
+		}),
+	)
+	.get("/", ({ log }) => {
+		log.info("/ is called");
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+		return "Hello Elysia";
+	});
+
+app.listen(3000, ({ hostname, port }) =>
+	console.log(`🦊 Elysia is running at ${hostname}:${port}`),
 );

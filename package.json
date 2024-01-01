@@ -6,7 +6,10 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@bogeychan/elysia-logger": "^0.0.14",
+    "elysia": "0.8.6",
+    "elysia-helmet": "^1.0.1",
+    "pino-pretty": "^10.3.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",

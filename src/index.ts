@@ -1,6 +1,7 @@
 import { Elysia } from "elysia";
 import { helmet } from "elysia-helmet";
 import { logger } from "@bogeychan/elysia-logger";
+import { router } from "./routes";
 
 const app = new Elysia()
 	.use(helmet())
@@ -14,6 +15,7 @@ const app = new Elysia()
 			},
 		}),
 	)
+	.use(router)
 	.get("/", ({ log }) => {
 		log.info("/ is called");
 

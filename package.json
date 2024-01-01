@@ -7,13 +7,17 @@
   },
   "dependencies": {
     "@bogeychan/elysia-logger": "^0.0.14",
+    "@lucia-auth/adapter-prisma": "^3.0.2",
+    "@lucia-auth/oauth": "^3.5.0",
     "elysia": "0.8.6",
     "elysia-helmet": "^1.0.1",
+    "lucia": "^2.7.6",
     "pino-pretty": "^10.3.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "prisma": "^5.7.1"
   },
   "module": "src/index.js"
 }
